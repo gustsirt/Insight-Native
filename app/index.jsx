@@ -1,8 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View } from 'react-native';
-import "./global.css";
 
-export default function App() {
+export default function Index() {
   return (
     <View className="flex items-center justify-center flex-1">
       <Text>Open up App.js to start working on your app!!</Text>
