@@ -2,13 +2,18 @@ import { Slot } from "expo-router";
 import "../global.css";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
+// import { useAuthStore } from "../store/authStore"; // Estado de autenticación
 
 export default function RootLayout() {
+  // const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
+  // return isAuthenticated ? (
+  //   <Slot /> // Carga las rutas privadas
+  // ) : (
+  //   <Slot /> // Carga las rutas públicas
+  // );
   return (
-    <View className="flex-1 items-center justify-center bg-slate-400">
-      <Slot />
-      <StatusBar style="auto" />
-    </View>
+    <Slot />
   );
 }
 

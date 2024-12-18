@@ -13,6 +13,11 @@ export default function Login() {
           <Text className='p-4 text-xl text-blue-500'>Home</Text>
         </Pressable>
       </Link>
+      <Link href="/projects" asChild>
+        <Pressable>
+          <Text className='p-4 text-xl text-blue-500'>Proyectos</Text>
+        </Pressable>
+      </Link>
     </View>
   )
 }
