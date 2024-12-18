@@ -11,3 +11,6 @@ export default function RootLayout() {
     </View>
   );
 }
+
+// Slot = hueco, pero recarga siempre
+// Stack = pila, es como tab que se abren y desde la cabezera que te permite desplazar o hacia los costado, cada stack se puede personalizar
