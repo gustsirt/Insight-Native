@@ -4,11 +4,14 @@ import { Link } from 'expo-router'
 import { useAuthStore } from '../../store/authStore'
 
 export default function Login() {
-  const { login } = useAuthStore();
+  const { login, token } = useAuthStore();
+  console.log("1");
+  console.log(token);
+
 
   return (
     <View className="flex items-center justify-center flex-1">
-      <Text>Pantalla de Login</Text>
+      <Text>Pantalla de Login 😁</Text>
       <Link href="/" asChild><Pressable>
         <Text className='p-4 text-xl text-blue-500'>Home</Text>
       </Pressable></Link>
