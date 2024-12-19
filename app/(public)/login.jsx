@@ -1,11 +1,10 @@
 import { Pressable, Text, View } from 'react-native'
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'expo-router'
 import { useAuthStore } from '../../store/authStore'
 
 export default function Login() {
-  const { login, logout, isAuthenticated } = useAuthStore();
-  console.log(isAuthenticated);
+  const { login } = useAuthStore();
 
   return (
     <View className="flex items-center justify-center flex-1">
@@ -14,7 +13,7 @@ export default function Login() {
         <Text className='p-4 text-xl text-blue-500'>Home</Text>
       </Pressable></Link>
       <Pressable onPress={login}>
-        <Text className='p-4 text-xl text-blue-500'>Login/Proyectos</Text>
+        <Text className='p-4 text-xl text-blue-500'>Login</Text>
       </Pressable>
     </View>
   )
