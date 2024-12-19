@@ -4,24 +4,15 @@ import { Pressable, Text, View } from 'react-native';
 export default function Index() {
   return (
     <View className="flex items-center justify-center flex-1">
-      <Text>Open up App.js to start working on your app!!</Text>
+      <Text>Bienvenido a Insight Native</Text>
       <Link href="/login" asChild>
         <Pressable>
-          <Text className='p-4 text-xl text-blue-500'>Login</Text>
+          <Text className='p-4 text-xl text-blue-500'>Iniciar Sesión</Text>
         </Pressable>
       </Link>
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
 
 
 // Slot es Outlet en Tanstack o "Children"

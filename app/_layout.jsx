@@ -1,21 +1,13 @@
-import { Slot } from "expo-router";
+import { Slot, useRouter } from "expo-router";
 import "../global.css";
-import { View } from "react-native";
-import { StatusBar } from "expo-status-bar";
-// import { useAuthStore } from "../store/authStore"; // Estado de autenticación
+import { useAuthStore } from "../store/authStore";
+import { useEffect } from "react";
 
 export default function RootLayout() {
-  // const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
-  // return isAuthenticated ? (
-  //   <Slot /> // Carga las rutas privadas
-  // ) : (
-  //   <Slot /> // Carga las rutas públicas
-  // );
-  return (
-    <Slot />
-  );
+
+  return <Slot />
 }
 
 // Slot = hueco, pero recarga siempre
-// Stack = pila, es como tab que se abren y desde la cabezera que te permite desplazar o hacia los costado, cada stack se puede personalizar
+// Stack = pila, es como tab que se abren y desde la cabezera que te permite desplazar o hacia los costado, cada stack se puede personalizarW
