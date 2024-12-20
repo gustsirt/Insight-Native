@@ -3,12 +3,12 @@ import React from 'react'
 import { useAuthStore } from '../../store/authStore';
 
 export default function Login() {
-  const { logout } = useAuthStore();
+  const { signOut } = useAuthStore();
 
   return (
     <View className="flex items-center justify-center flex-1">
       <Text>Pantalla de Logout</Text>
-      <Pressable onPress={logout}>
+      <Pressable onPress={signOut}>
         <Text className='p-4 text-xl text-blue-500'>Logout</Text>
       </Pressable>
     </View>

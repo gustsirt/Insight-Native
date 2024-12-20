@@ -4,10 +4,11 @@ import { Link } from 'expo-router'
 import { useAuthStore } from '../../store/authStore'
 
 export default function Login() {
-  const { login, token } = useAuthStore();
-  console.log("1");
-  console.log(token);
+  const { signIn } = useAuthStore();
 
+  const handleLogin = () => {
+    signIn("token_prueba");
+  };
 
   return (
     <View className="flex items-center justify-center flex-1">
@@ -15,7 +16,7 @@ export default function Login() {
       <Link href="/" asChild><Pressable>
         <Text className='p-4 text-xl text-blue-500'>Home</Text>
       </Pressable></Link>
-      <Pressable onPress={login}>
+      <Pressable onPress={handleLogin}>
         <Text className='p-4 text-xl text-blue-500'>Login</Text>
       </Pressable>
     </View>

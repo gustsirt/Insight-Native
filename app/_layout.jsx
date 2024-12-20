@@ -1,12 +1,17 @@
 import { Slot } from "expo-router";
 import "../global.css";
 import { useAuthStore } from "../store/authStore";
+import { useEffect } from "react";
 
 
 
 export default function RootLayout() {
-  const { hydrate } = useAuthStore()
-  hydrate()
+  const { hydrate } = useAuthStore();
+
+  useEffect(() => {
+    hydrate(); // Solo se ejecuta una vez al montar el componente
+  }, [hydrate]);
+
   return <Slot />
 }
 
