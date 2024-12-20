@@ -9,7 +9,7 @@ export const useAuthStore = create((set) => ({
   login: () => set({ isAuthenticated: true }),
   logout: () => set({ isAuthenticated: false }),
 
-  signIn: (token) => { // reemplazara a "login"
+  signIn: (token = "token_prueba") => { // reemplazara a "login"
     setToken(token);
     set({ status: 'signIn', token });
   },
