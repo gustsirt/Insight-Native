@@ -3,37 +3,36 @@ import { getToken, removeToken, setToken } from "../src/utils/token";
 // https://starter.obytes.com/guides/authentication/
 
 export const useAuthStore = create((set) => ({
-  isAuthenticated: false,
-  status: 'idle', // reemplazara a "isAuthenticated"
-  token: null, // reemplazara a "isAuthenticated"
-  // login: () => set({ isAuthenticated: true }),
-  // logout: () => set({ isAuthenticated: false }),
+  status: 'idle',
+  token: null,
 
-  signIn: (token) => {
+  signIn: async (token) => {
     try {
       // Verifica que el token sea un valor simple (string)
       console.log("type ok: ", typeof token);
       console.log("token: ", token);
 
       if (typeof token === 'string') {
-        setToken(token);  // Guarda el token en el almacenamiento
+        await setToken(token);  // Guarda el token en el almacenamiento
         set({ status: 'signIn', token });
       } else {
-        console.error("El token no es un valor válido");
+        console.error("El token debe ser un string");
       }
     } catch (e) {
       console.error("Error al intentar almacenar el token:", e);
     }
   },
 
-  signOut: () => { // reemplazara a "logout"
-    removeToken();
+  signOut: async () => { // reemplazara a "logout"
+    await removeToken();
     set({ status: 'signOut', token: null });
   },
 
-  hydrate: () => {
+  hydrate: async () => {
     try {
-      const userToken = getToken();
+
+      const userToken = await getToken();
+      console.log("userToken: ", userToken);
       if (userToken !== null) {
         set({ status: 'signIn', token: userToken });
       } else {

@@ -3,10 +3,12 @@ import { useAuthStore } from '../../store/authStore';
 import { Redirect } from 'expo-router';
 
 export default function PrivateLayout() {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+  // Usamos el token para verificar si el usuario está autenticado
+  const token = useAuthStore((state) => state.token);
 
-  if (!isAuthenticated) {
-    return <Redirect href="/login" />
+  if (!token) {
+    // Si no hay token, redirigimos al login
+    return <Redirect href="/login" />;
   }
 
   return (

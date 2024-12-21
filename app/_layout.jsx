@@ -1,16 +1,26 @@
 import { Slot } from "expo-router";
 import "../global.css";
 import { useAuthStore } from "../store/authStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ActivityIndicator } from "react-native";
 
 
 
 export default function RootLayout() {
   const { hydrate } = useAuthStore();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    hydrate(); // Solo se ejecuta una vez al montar el componente
+    const initializeAuth = async () => {
+      await hydrate();
+      setLoading(false); // Una vez hidratado, actualizamos el estado de carga
+    };
+    initializeAuth();
   }, [hydrate]);
+
+  if (loading) {
+    return <ActivityIndicator />
+  }
 
   return <Slot />
 }
