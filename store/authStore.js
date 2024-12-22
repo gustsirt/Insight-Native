@@ -9,8 +9,8 @@ export const useAuthStore = create((set) => ({
   signIn: async (token) => {
     try {
       // Verifica que el token sea un valor simple (string)
-      console.log("type ok: ", typeof token);
-      console.log("token: ", token);
+      console.log("signIn / type ok: ", typeof token);
+      console.log("signIn / token: ", token);
 
       if (typeof token === 'string') {
         await setToken(token);  // Guarda el token en el almacenamiento
@@ -32,7 +32,7 @@ export const useAuthStore = create((set) => ({
     try {
 
       const userToken = await getToken();
-      console.log("userToken: ", userToken);
+      console.log("hydrate / userToken: ", userToken);
       if (userToken !== null) {
         set({ status: 'signIn', token: userToken });
       } else {
