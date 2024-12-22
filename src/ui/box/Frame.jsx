@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Frame = ({
   children,
-  css = 'w-full max-w-4xl',
+  css = 'w-full flex-1 items-center justify-center',
   title,
 }) => {
   return (
-    <ScrollView className={`relative min-h-screen bg-gray-50 ${css}`}>
+    <View className={`relative bg-gray-50 ${css}`}>
       {title ? (
         <View className="flex flex-row items-center gap-3">
           <Text className="text-3xl font-semibold mb-2">{title}</Text>
         </View>
       ) : null}
-      <View className="mx-auto p-8 bg-white shadow-xl min-h-[80vh] rounded-lg overflow-hidden">
+      <View className="w-full p-8 bg-white shadow-xl rounded-lg flex-1 items-center justify-center">
         {children}
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
