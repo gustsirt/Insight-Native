@@ -1,20 +1,18 @@
 import axios from 'axios';
 import { useAuthStore } from '../../../store/authStore';
 
+// cambiar ENV a EXPO_PUBLIC_BACKEND_URL
 
 const myAxios = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL,
+  baseURL: process.env.EXPO_PUBLIC_BACKEND_URL,
   timeout: 1000 * 10, // Tiempo de espera máximo de 10 segundos
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json', },
 });
 
 // Interceptor para agregar el Bearer Token si está disponible
 myAxios.interceptors.request.use((config) => {
 
   const token = useAuthStore.getState().token;
-
   if (token) { config.headers.Authorization = `Bearer ${token}`; }
 
   return config;

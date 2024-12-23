@@ -1,11 +1,9 @@
-import { Link } from 'expo-router'
-import { useAuthStore } from '../../../store/authStore';
-
 import { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Pressable } from 'react-native';
+import { View, Text, TextInput, Pressable } from 'react-native';
 import { useForm, Controller } from 'react-hook-form'; // Usamos React Hook Form para gestionar el formulario
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import useAuthApi from './useAuthApi';
 
 // Definición del esquema de validación usando Zod
 const loginSchema = z.object({
@@ -15,8 +13,8 @@ const loginSchema = z.object({
 
 // Form de Logueo
 export default function LoginForm() {
-  // const { signIn } = useAuthStore();
 
+  const { authLogin, response } = useAuthApi()
 
   // Inicializamos el formulario
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -28,8 +26,11 @@ export default function LoginForm() {
   });
 
   // Función que manejará el submit del formulario
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log('Datos enviados:', data);
+    await authLogin(data)
+    console.log('Datos recibidos:', response);
+
   };
 
 
