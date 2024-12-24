@@ -4,6 +4,8 @@ import { useForm, Controller } from 'react-hook-form'; // Usamos React Hook Form
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import useAuthApi from './useAuthApi';
+import { useAuthStore } from '../../../store/authStore';
+import { alertMessage } from '../../ui/messages/alerts';
 
 // Definición del esquema de validación usando Zod
 const loginSchema = z.object({
@@ -15,6 +17,7 @@ const loginSchema = z.object({
 export default function LoginForm() {
 
   const { authLogin, response } = useAuthApi()
+  const { signIn } = useAuthStore()
 
   // Inicializamos el formulario
   const { control, handleSubmit, reset, formState: { errors } } = useForm({
@@ -30,6 +33,12 @@ export default function LoginForm() {
     console.log('Datos enviados:', data);
     await authLogin(data)
     console.log('Datos recibidos:', response);
+    if (response.data.token) {
+      alertMessage("Login exitoso", "success")
+      await signIn(response.data.token)
+    } else {
+      alertMessage("Error en el login", "error")
+    }
 
   };
 
