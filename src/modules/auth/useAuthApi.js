@@ -13,13 +13,12 @@ export default function useAuthApi() {
     const url = option === 'login' ? '/v1/auth/login' : '/v1/auth/register';
 
     try {
-      console.log(process.env.EXPO_PUBLIC_BACKEND_URL);
       const res = await myAxios.post(url, credentials);
       const data = res.data;
 
       if (data?.isError) throw new Error(data.message);
 
-      setResponse(data); // Guardar la respuesta exitosa de la API
+      setResponse(data.data); // Guardar la respuesta exitosa de la API
     } catch (error) {
       setError(error.response?.data?.message || 'Authentication failed');
     } finally {
