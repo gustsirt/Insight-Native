@@ -18,7 +18,7 @@ export default function useAuthApi() {
 
       if (data?.isError) throw new Error(data.message);
 
-      setResponse(data.data); // Guardar la respuesta exitosa de la API
+      setResponse(data); // Guardar la respuesta exitosa de la API
     } catch (error) {
       setError(error.response?.data?.message || 'Authentication failed');
     } finally {
