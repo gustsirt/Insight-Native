@@ -1,8 +1,8 @@
 const images = {
-  logo: require("../../assets/insight_hor.png"),
-  // Add more images here...
-  // { src: '/insight.png', alt: 'Logo' },
-  // { src: '/insight_hor.png', alt: 'Logo' },
+  logo: require("../../assets/logo.png"),
+  logoB: require("../../assets/logo_blanco.png"),
+  logoHor: require("../../assets/logo_hor.png"),
+  logoHorB: require("../../assets/logo_hor_blanco.png"),
 };
 
 export default images;
