@@ -19,13 +19,6 @@ const config = {
     login: '/projects', // luego de que loguea
     private: '/login', // cuando intenta entrar a una ruta privada
   },
-  images: {
-    logo: [
-      { src: '/logo.png', alt: 'Logo' },
-      { src: '/insight.png', alt: 'Logo' },
-      { src: '/insight_hor.png', alt: 'Logo' },
-    ]
-  }
 }
 
 export const styles = {
