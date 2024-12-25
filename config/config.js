@@ -20,7 +20,6 @@ const config = {
     private: '/login', // cuando intenta entrar a una ruta privada
   },
   images: {
-    S
     logo: [
       { src: '/logo.png', alt: 'Logo' },
       { src: '/insight.png', alt: 'Logo' },
