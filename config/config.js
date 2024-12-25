@@ -14,7 +14,7 @@ const config = {
       given_name: 'public', // Este dato se verifica en private
       full_name: 'Usuario no logueado'
     }
-  }, S
+  },
   path: {
     login: '/projects', // luego de que loguea
     private: '/login', // cuando intenta entrar a una ruta privada
