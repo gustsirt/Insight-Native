@@ -3,9 +3,6 @@ import "../global.css";
 import { useAuthStore } from "../store/authStore";
 import { useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-
 
 export default function RootLayout() {
   const { hydrate } = useAuthStore();
@@ -20,17 +17,16 @@ export default function RootLayout() {
     initializeAuth();
   }, [hydrate]);
 
-  // Crear instancia del QueryClient
-  const queryClient = new QueryClient();
-
   if (loading) {
     return (
-      <QueryClientProvider client={queryClient}>
-        <ActivityIndicator />
-      </QueryClientProvider>)
+      <ActivityIndicator />
+    )
   }
 
-  return <Slot />
+  return (
+
+    <Slot />
+  )
 }
 
 // Slot = hueco, pero recarga siempre
