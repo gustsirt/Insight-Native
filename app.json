@@ -4,12 +4,12 @@
     "slug": "Insight-Native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/insight.png",
+    "icon": "./assets/logo.png",
     "scheme": "insight-native",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/insight.png",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/insight.png",
+        "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.gustavo.sirt.InsightNative"
