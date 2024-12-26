@@ -32,7 +32,7 @@ export const useAuthStore = create((set) => ({
     try {
 
       const userToken = await getToken();
-      console.log("hydrate / userToken: ", userToken);
+      // console.log("hydrate / userToken: ", userToken);
       if (userToken !== null) {
         set({ status: 'signIn', token: userToken });
       } else {
