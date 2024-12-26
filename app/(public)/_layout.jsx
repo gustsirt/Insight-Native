@@ -17,7 +17,7 @@ export default function PublicLayout() {
     return <ActivityIndicator />; // Mientras carga, puedes mostrar un spinner si lo deseas
   }
 
-  console.log("PublicLayout / Token:", token);
+  // console.log("PublicLayout / Token:", token);
 
   // Si ya existe el token, redirigimos a /projects
   if (token) {
