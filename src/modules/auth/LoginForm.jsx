@@ -33,7 +33,7 @@ export default function LoginForm() {
     console.log('Datos enviados:', data);
     await authLogin(data)
     console.log('Datos recibidos:', response);
-    if (response.data.token) {
+    if (response?.data?.token) {
       alertMessage("Login exitoso", "success")
       await signIn(response.data.token)
     } else {
